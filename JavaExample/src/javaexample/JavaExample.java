@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package javaexample;
 
 import java.io.BufferedReader;
@@ -38,87 +33,20 @@ public class JavaExample {
         
         
         
-        
+        //visualizziamo il log delle fatture
         DateFormat df = new SimpleDateFormat("dd/MM/yyyy");
         
         for(int i=0; i<fatture.size(); i++){
-            Fattura f = fatture.get(i);
-            System.out.println("Fattura n. " + f.getNFattura());
-            System.out.println("Data fatt. " + df.format(f.getDataFattura()));
-            System.out.println("Mod. pag . " + f.getModalitaPagamento());
-            System.out.println("Scad fatt. " + df.format(f.getScadenza()));
-            System.out.println("---------------------------------------");
+            try {
+	    	Fattura f = fatture.get(i);
+            	System.out.println("Fattura n. " + f.getNFattura());
+            	System.out.println("Data fatt. " + df.format(f.getDataFattura()));
+            	System.out.println("Mod. pag . " + f.getModalitaPagamento());
+            	System.out.println("Scad fatt. " + df.format(f.getScadenza()));
+            	System.out.println("---------------------------------------");
+	    } catch (NullPointerException npe){
+	        System.out.println("Dati mancanti nella fattura");
+	    }
         }
-        
-        
-        
-        
-        /*
-        
-        
-        
-        	BufferedReader br = null;
-		FileReader fr = null;
-
-		try {
-			fr = new FileReader(FILENAME);
-			br = new BufferedReader(fr);
-			String sCurrentLine;
-			br = new BufferedReader(new FileReader(FILENAME));
-			while ((sCurrentLine = br.readLine()) != null) {
-				System.out.println(sCurrentLine);
-			}
-		} catch (IOException e) {
-			e.printStackTrace();
-		} finally {
-			try {
-        			if (br != null)
-                			br.close();
-				if (fr != null)
-					fr.close();
-			} catch (IOException ex) {
-				ex.printStackTrace();
-			}
-		}
-                
-                // Salvare un nuovo file!
-                BufferedWriter bw = null;
-		FileWriter fw = null;
-
-		try {
-
-			String content = "This is the content to write into file\n";
-
-			fw = new FileWriter(FILENAMEWRITE);
-			bw = new BufferedWriter(fw);
-			bw.write(content);
-
-			System.out.println("Done");
-
-		} catch (IOException e) {
-
-			e.printStackTrace();
-
-		} finally {
-
-			try {
-
-				if (bw != null)
-					bw.close();
-
-				if (fw != null)
-					fw.close();
-
-			} catch (IOException ex) {
-
-				ex.printStackTrace();
-
-			}
-
-		}
-
-                
-          */      
-                
     }
 }
